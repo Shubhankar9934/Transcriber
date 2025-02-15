@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { uploadAudioFile, getTranscriptionResult } from "@/lib/api";
 import type { TranscriptionJob } from "@/types/api";
-import Header from "./Header";
 import UploadZone from "./UploadZone";
 import TranscriptionStatus from "./TranscriptionStatus";
 import TranscriptPreview from "./TranscriptPreview";
@@ -52,7 +51,6 @@ const Home = () => {
       setIsUploading(true);
       setUploadProgress(0);
 
-      // Simulate upload progress
       const uploadInterval = setInterval(() => {
         setUploadProgress((prev) => Math.min(prev + 10, 90));
       }, 500);
@@ -82,11 +80,11 @@ const Home = () => {
           exit={{ opacity: 0 }}
           className="min-h-screen"
         >
-          <Header />
           <Hero onStart={handleStart} onDemo={handleStart} />
           <Features />
           <Stats />
           <CTA onStart={handleStart} />
+          <Footer />
         </motion.div>
       ) : (
         <motion.div
@@ -96,7 +94,6 @@ const Home = () => {
           exit={{ opacity: 0, y: -20 }}
           className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100"
         >
-          <Header showBackButton onBack={() => setShowApp(false)} />
           <motion.main
             className="container mx-auto px-4 py-8 space-y-8"
             initial={{ opacity: 0, y: 20 }}
@@ -165,7 +162,9 @@ const Home = () => {
                       onDownloadJson={() => {
                         const blob = new Blob(
                           [JSON.stringify(transcriptData, null, 2)],
-                          { type: "application/json" },
+                          {
+                            type: "application/json",
+                          },
                         );
                         const url = URL.createObjectURL(blob);
                         const a = document.createElement("a");
