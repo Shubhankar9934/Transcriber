@@ -60,7 +60,7 @@ const InputSelector = ({
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto bg-white rounded-xl shadow-xl border border-slate-200 overflow-hidden">
+    <div className="w-full max-w-4xl mx-auto bg-gradient-to-br from-white to-slate-50 rounded-xl shadow-xl border border-slate-200 overflow-hidden transform-gpu transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
       <Tabs defaultValue="upload" className="w-full">
         <TabsList className="w-full grid grid-cols-3 h-16 bg-slate-50">
           <TabsTrigger

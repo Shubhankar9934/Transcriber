@@ -9,6 +9,7 @@ import Hero from "./landing/Hero";
 import Features from "./landing/Features";
 import Stats from "./landing/Stats";
 import CTA from "./landing/CTA";
+import ToolsShowcase from "./landing/ToolsShowcase";
 import Footer from "./Footer";
 import InputSelector from "./InputSelector";
 
@@ -82,6 +83,7 @@ const Home = () => {
         >
           <Hero onStart={handleStart} onDemo={handleStart} />
           <Features />
+          <ToolsShowcase />
           <Stats />
           <CTA onStart={handleStart} />
           <Footer />
